@@ -50,8 +50,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="Views/Product.aspx">Products</a></li>
-
+                        <li><a runat="server" href="Views/ProductList.aspx">Products</a></li>
                         <li><a runat="server" href="~/About">About Us</a></li>
                         <li><a runat="server" href="~/Contact">Contact Us</a></li>
                     </ul>
@@ -74,6 +73,21 @@
                 </div>
             </div>
         </div>
+         <%--<div id="CategoryMenu" style="text-align: center">       
+            <asp:ListView ID="categoryList"  
+                ItemType="AdvanceTech.Models.Category" 
+                runat="server"
+                SelectMethod="GetCategories" >
+                <ItemTemplate>
+                    <b style="font-size: large; font-style: normal">
+                    <a href="<%#: GetRouteUrl("ProductsByCategoryRoute", new {categoryName = Item.CategoryName}) %>">
+                        <%#: Item.CategoryName %>
+                    </a>
+                    </b>
+                </ItemTemplate>
+                <ItemSeparatorTemplate>  |  </ItemSeparatorTemplate>
+            </asp:ListView>
+        </div>--%>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>

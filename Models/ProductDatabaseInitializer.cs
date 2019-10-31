@@ -63,7 +63,7 @@ namespace AdvanceTech.Models
                     ProductID = 3,
                     ProductName = "Bose SoundLink Revolve+ ",
                     Description = "The best performing portable speaker from Bose; delivers Deep, loud, jaw dropping sound with True 360 degree coverage",
-                    ImagePath="carfast.jpg",
+                    ImagePath="Bose.jpg",
                     UnitPrice = 299.00,
                     CategoryID = 3
                 },

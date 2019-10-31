@@ -74,7 +74,13 @@ namespace AdvanceTech
 
         }
 
-
+        //public IQueryable<Category> GetCategories()
+        //{
+        //    var _db = AdvanceTech.Models.ProductContext();
+        //    IQueryable<Category> query = _db.Categories;
+        //    return query;
+        //}
+
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
