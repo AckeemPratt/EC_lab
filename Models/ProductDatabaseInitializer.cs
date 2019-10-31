@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AdvanceTech.Models
 {
-    public class ProductDatabaseInitializer : DropCreateDatabaseIfModelChanges<ProductContext>
+    public class ProductDatabaseInitializer : DropCreateDatabaseAlways<ProductContext>
     {
         protected override void Seed(ProductContext context)
         {
@@ -14,30 +14,30 @@ namespace AdvanceTech.Models
             GetProducts().ForEach(p => context.Products.Add(p));
         }
 
-        private static List<Category> GetCategories()
+        public static List<Category> GetCategories()
         {
             var categories = new List<Category> {
                 new Category
                 {
                     CategoryID = 1,
-                    CategoryName = "Phone"
+                    CategoryName = "PHONE"
                 },
                 new Category
                 {
                     CategoryID = 2,
-                    CategoryName = "Pc"
+                    CategoryName = "PC"
                 },
                 new Category
                 {
                     CategoryID = 3,
-                    CategoryName = "Aceessories"
+                    CategoryName = "ACCESSORIES"
                 },
 
             };
 
             return categories;
         }
-        private static List<Product> GetProducts()
+        public static List<Product> GetProducts()
         {
             var products = new List<Product> {
                 new Product
