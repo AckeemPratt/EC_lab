@@ -37,7 +37,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="top: 0px;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -66,28 +66,29 @@
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Welcome, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
+                                    </li--%>
+
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>
                 </div>
             </div>
         </div>
-         <%--<div id="CategoryMenu" style="text-align: center">       
-            <asp:ListView ID="categoryList"  
-                ItemType="AdvanceTech.Models.Category" 
-                runat="server"
-                SelectMethod="GetCategories" >
+        <div id="CategoryMenu" style="text-align: center">
+            <asp:ListView ID="categoryList"
+                ItemType="AdvanceTech.Models.Category" runat="server"
+                SelectMethod="GetCategories">
                 <ItemTemplate>
                     <b style="font-size: large; font-style: normal">
-                    <a href="<%#: GetRouteUrl("ProductsByCategoryRoute", new {categoryName = Item.CategoryName}) %>">
-                        <%#: Item.CategoryName %>
-                    </a>
+                        <a href="/Views/ProductList.aspx?id=<%#: Item.CategoryID %>">
+                            <%#: Item.CategoryName %> 
+                        </a>
                     </b>
                 </ItemTemplate>
-                <ItemSeparatorTemplate>  |  </ItemSeparatorTemplate>
+                <ItemSeparatorTemplate>|  </ItemSeparatorTemplate>
             </asp:ListView>
-        </div>--%>
+        </div>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>

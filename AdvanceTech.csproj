@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -169,9 +172,6 @@
     <Reference Include="Owin">
       <HintPath>packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
@@ -190,10 +190,6 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="App_Data\AdvanceTech.mdf" />
-    <Content Include="App_Data\AdvanceTech_log.ldf">
-      <DependentUpon>AdvanceTech.mdf</DependentUpon>
-    </Content>
     <Content Include="carocel\Blade-Pro.jpg" />
     <Content Include="carocel\img_592_e75607e4dcd3e5757e8b0a8fec3747e0_1.jpg" />
     <Content Include="carocel\these-samsung-phone-deals-are-worth-a-look-if-youre-scared-of-galaxy-note-10-pricing-techradar.jpg" />
@@ -399,29 +395,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910300102389_dob.cs" />
-    <Compile Include="Migrations\201910300102389_dob.Designer.cs">
-      <DependentUpon>201910300102389_dob.cs</DependentUpon>
+    <Compile Include="Migrations\201910312310070_intitial.cs" />
+    <Compile Include="Migrations\201910312310070_intitial.Designer.cs">
+      <DependentUpon>201910312310070_intitial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910301846115_displayName.cs" />
-    <Compile Include="Migrations\201910301846115_displayName.Designer.cs">
-      <DependentUpon>201910301846115_displayName.cs</DependentUpon>
+    <Compile Include="Migrations\201910312312299_Product.cs" />
+    <Compile Include="Migrations\201910312312299_Product.Designer.cs">
+      <DependentUpon>201910312312299_Product.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910310115284_Product.cs" />
-    <Compile Include="Migrations\201910310115284_Product.Designer.cs">
-      <DependentUpon>201910310115284_Product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910312201501_Products.cs" />
-    <Compile Include="Migrations\201910312201501_Products.Designer.cs">
-      <DependentUpon>201910312201501_Products.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910312203553_Product1.cs" />
-    <Compile Include="Migrations\201910312203553_Product1.Designer.cs">
-      <DependentUpon>201910312203553_Product1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910312206408_Product2.cs" />
-    <Compile Include="Migrations\201910312206408_Product2.Designer.cs">
-      <DependentUpon>201910312206408_Product2.cs</DependentUpon>
+    <Compile Include="Migrations\201911010002514_Product1.cs" />
+    <Compile Include="Migrations\201911010002514_Product1.Designer.cs">
+      <DependentUpon>201911010002514_Product1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -475,6 +459,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
@@ -489,23 +474,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910300102389_dob.resx">
-      <DependentUpon>201910300102389_dob.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910312310070_intitial.resx">
+      <DependentUpon>201910312310070_intitial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910301846115_displayName.resx">
-      <DependentUpon>201910301846115_displayName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910312312299_Product.resx">
+      <DependentUpon>201910312312299_Product.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910310115284_Product.resx">
-      <DependentUpon>201910310115284_Product.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910312201501_Products.resx">
-      <DependentUpon>201910312201501_Products.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910312203553_Product1.resx">
-      <DependentUpon>201910312203553_Product1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910312206408_Product2.resx">
-      <DependentUpon>201910312206408_Product2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911010002514_Product1.resx">
+      <DependentUpon>201911010002514_Product1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
