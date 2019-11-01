@@ -28,7 +28,9 @@
                         <table>
                             <tr>
                                 <td><a href="~/Views/ProductDetails.aspx?productID=<%#:Item.ProductID%>">
-                                    <img src="/products/<%#:Item.ImagePath%>" width="400" height="300" style="border: solid" /></a>                                 </td>
+                                    <img src="/products/<%#:Item.ImagePath%>" width="400" height="300" style="border: solid" />
+
+                                    </a>                                 </td>
                             </tr>
                             <tr>
                                 <td><a href="ProductDetails.aspx?productID=<%#:Item.ProductID%>"><span><%#:Item.ProductName%>                                         </span></a>
