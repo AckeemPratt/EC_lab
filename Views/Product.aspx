@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <section>
-        <div class="mt-5">
+        <div class="mt-5 table-responsive">
             <hgroup>
                 <h2><%: Page.Title %></h2>
             </hgroup>
@@ -11,7 +11,7 @@
                 DataKeyNames="ProductID" GroupItemCount="4"
                 ItemType="AdvanceTech.Models.Product" SelectMethod="GetCategories">
                 <EmptyDataTemplate>
-                    <table>
+                    <table class="table">
                         <tr>
                             <td>No data was returned.</td>
                         </tr>
@@ -27,7 +27,7 @@
                 </GroupTemplate>
                 <ItemTemplate>
                     <td runat="server">
-                        <table>
+                        <table class="table">
                             <tr>
                                 <td>
                                     <a
