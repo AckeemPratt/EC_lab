@@ -15,6 +15,19 @@ namespace AdvanceTech.Views
         {
 
         }
-        public IQueryable<Product> GetProduct([QueryString("productID")] int? productId) { var _db = new AdvanceTech.Models.ProductContext(); IQueryable<Product> query = _db.Products; if (productId.HasValue && productId > 0) { query = query.Where(p => p.ProductID == productId); } else { query = null; } return query; }
+
+        public IQueryable<Product> GetProduct([QueryString("productID")] int? productId)
+        {
+            var _db = new AdvanceTech.Models.ProductContext();
+            IQueryable<Product> query = _db.Products; if (productId.HasValue && productId > 0)
+            {
+                query = query.Where(p => p.ProductID == productId);
+            }
+            else
+            {
+                query = null;
+            }
+            return query;
+        }
     }
 }

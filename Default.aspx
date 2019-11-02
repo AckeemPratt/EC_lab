@@ -10,23 +10,24 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item">
-          <img data-src="holder.js/900x500/auto/#777:#777"  width="60%" height="20%" alt="900x400" src="carocel/img_592_e75607e4dcd3e5757e8b0a8fec3747e0_1.jpg" data-holder-rendered="false">
+          <img data-src=""  width="100%"  alt="900x500" src="carocel/360900500.jpg" data-holder-rendered="false" class="img-fluid">
           <div class="carousel-caption">
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Bose Revolve Feel The 360°</h3>
+            <p>Meet SoundLink Revolve, one of our best performing portable Bluetooth speakers</p>
           </div>
         </div>
         <div class="item">
-          <img data-src="holder.js/900x500/auto/#666:#666"  width="100%" alt="900x500" src="carocel/these-samsung-phone-deals-are-worth-a-look-if-youre-scared-of-galaxy-note-10-pricing-techradar.jpg" data-holder-rendered="false">
+          <img data-src=""  width="100%" alt="900x500" src="carocel/s10 900 500.jpg" data-holder-rendered="false"  class="img-fluid">
           <div class="carousel-caption">
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Samsung S10</h3>
+            <p>The next generation of Galaxy has arrived. Discover Samsung Galaxy</p>
           </div>
         </div>
         <div class="item active">
-          <img data-src="holder.js/900x500/auto/#555:#555" width="100%" alt="900x500" src="carocel/Blade-Pro.jpg" data-holder-rendered="true">
+          <img data-src="" width="100%" alt="900x500" src="carocel/xrazer-blade-15 900500.jpg" data-holder-rendered="true" class="img-fluid">
           <div class="carousel-caption">
             <h3>New RAZOR 17&quot;</h3>
+              <p>Razer's latest 17-inch laptop offers desktop-grade gaming performance in a weighty but portable package</p>
             <p>&nbsp;</p>
           </div>
         </div>

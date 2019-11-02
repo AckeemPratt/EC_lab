@@ -190,9 +190,19 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AddToCart.aspx" />
+    <Content Include="App_Data\AdvanceTech.mdf" />
+    <Content Include="App_Data\AdvanceTech_log.ldf">
+      <DependentUpon>AdvanceTech.mdf</DependentUpon>
+    </Content>
+    <Content Include="carocel\360900500.jpg" />
     <Content Include="carocel\Blade-Pro.jpg" />
     <Content Include="carocel\img_592_e75607e4dcd3e5757e8b0a8fec3747e0_1.jpg" />
+    <Content Include="carocel\iphone 500 900.jpg" />
+    <Content Include="carocel\JBL_Xtreme_Portable_Bluetooth_Speaker_-_Red-900x500.jpg" />
+    <Content Include="carocel\s10 900 500.jpg" />
     <Content Include="carocel\these-samsung-phone-deals-are-worth-a-look-if-youre-scared-of-galaxy-note-10-pricing-techradar.jpg" />
+    <Content Include="carocel\xrazer-blade-15 900500.jpg" />
     <Content Include="carocel\ZtecjUWvtcn9RnWDN47F4F-480-80.jpg" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -220,6 +230,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="ShoppingCart.aspx" />
     <Content Include="Views\Product.aspx" />
     <Content Include="products\Bose.jpg" />
     <Content Include="products\iphone.jpg" />
@@ -367,6 +378,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddToCart.aspx.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddToCart.aspx.designer.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -395,6 +413,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ShoppingCartActions.cs" />
     <Compile Include="Migrations\201910312310070_intitial.cs" />
     <Compile Include="Migrations\201910312310070_intitial.Designer.cs">
       <DependentUpon>201910312310070_intitial.cs</DependentUpon>
@@ -408,11 +427,19 @@
       <DependentUpon>201911010002514_Product1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductContext.cs" />
     <Compile Include="Models\ProductDatabaseInitializer.cs" />
+    <Compile Include="ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -459,7 +486,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>

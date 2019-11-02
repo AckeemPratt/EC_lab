@@ -13,7 +13,25 @@
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <style>
+        .help {
+	 text-transfrom: uppercase;
+	 color: white;
+	 font-size:2em;
+	 text-align: center;
+	 animation: neonGlow 0.5s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+ @keyframes neonGlow {
+	 0% {
+		 text-shadow: 0 0 3px rgba(255, 255, 255, .8), 0 0 4px rgba(255, 255, 255, .8), 0 0 8px rgba(255, 255, 255, .8), 0 0 16px rgba(66, 220, 219, .8), 0 0 32px rgba(66, 220, 219, .8), 0 0 64px rgba(66, 220, 219, .5), 0 0 128px rgba(66, 220, 219, .5), 0 0 236px rgba(66, 220, 219, .5), 0 0 236px rgba(66, 220, 219, .5);
+	}
+	 100% {
+		 text-shadow: 0 0 2px rgba(255, 255, 255, .8), 0 0 2px rgba(255, 255, 255, .8), 0 0 4px rgba(255, 255, 255, .8), 0 0 8px rgba(66, 220, 219, .8), 0 0 16px rgba(66, 220, 219, .8), 0 0 32px rgba(66, 220, 219, .8), 0 0 64px rgba(66, 220, 219, .5), 0 0 128px rgba(66, 220, 219, .5);
+	}
+}
+ 
+    </style>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 </head>
 <body>
     <form runat="server">
@@ -45,7 +63,7 @@
                         <spand class="icon-bar"></spand>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">AdvanceTech</a>
+                    <a class="navbar-brand help" runat="server" href="~/" style="color:white">AdvanceTech</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -79,8 +97,8 @@
                 ItemType="AdvanceTech.Models.Category" runat="server"
                 SelectMethod="GetCategories">
                 <ItemTemplate>
-                    <b style="font-size: large; font-style: normal">
-                        <a href="/Views/ProductList.aspx?id=<%#: Item.CategoryID %>">
+                    <b style="font-size: large; font-style: normal" class="">
+                        <a class="animated lightSpeedIn label label-default" style="justify-content="left" href="/Views/ProductList.aspx?id=<%#: Item.CategoryID %>">
                             <%#: Item.CategoryName %> 
                         </a>
                     </b>
