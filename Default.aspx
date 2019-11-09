@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div id="carousel-example-captions" class="carousel slide container-fluid" data-ride="carousel">
+    <div id="carousel-example-captions" class="carousel slide container animated tada" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carousel-example-captions" data-slide-to="0" class=""></li>
         <li data-target="#carousel-example-captions" data-slide-to="1" class=""></li>

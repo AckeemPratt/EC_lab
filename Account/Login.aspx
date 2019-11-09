@@ -3,9 +3,9 @@
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h2><%: Title %>.</h2>
+    <h2 class="jumbotron animated jello"><%: Title %>.</h2>
 
-    <div class="row">
+    <div class="row jumbotron animated jackInTheBox">
         <div class="col-md-8">
             <section id="loginForm">
                 <div class="form-horizontal">
@@ -58,7 +58,7 @@
 
         <div class="col-md-4">
             <section id="socialLoginForm">
-                <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
+                <uc:openauthproviders runat="server" id="OpenAuthLogin" />
             </section>
         </div>
     </div>

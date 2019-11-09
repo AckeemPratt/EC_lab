@@ -55,15 +55,15 @@ namespace AdvanceTech
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
+            //app.UseFacebookAuthentication(`   `
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "57875265773-euhhrf1blm2luqc9dn4jm6iv3o7vuvis.apps.googleusercontent.com",
+                ClientSecret = "tE4Sd2NXlz7EvPIi2QnocZHS"
+            });
         }
     }
 }

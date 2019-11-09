@@ -13,6 +13,8 @@
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> 
+
     <style>
         .help {
 	 text-transfrom: uppercase;
@@ -66,11 +68,14 @@
                     <a class="navbar-brand help" runat="server" href="~/" style="color:white">AdvanceTech</a>
                 </div>
                 <div class="navbar-collapse collapse">
+                    
                     <ul class="nav navbar-nav">
+                        <li><a runat="server" id="adminLink" visible="false" class="fa-user-shield" href="~/Admin/AdminPage">Admin</a></li>
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="Views/ProductList.aspx">Products</a></li>
                         <li><a runat="server" href="~/About">About Us</a></li>
                         <li><a runat="server" href="~/Contact">Contact Us</a></li>
+                        <li class="animated heartBeat infinite"> <a runat="server" href="~/ShoppingCart" ID="cartCount"> &nbsp;</a> </li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
@@ -81,7 +86,9 @@
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Welcome, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Welcome, <%:HttpContext.Current.GetOwinContext()
+           .GetUserManager<AdvanceTech.ApplicationUserManager>()
+            .FindById(Context.User.Identity.GetUserId()).displayName  %> !</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                     </li--%>

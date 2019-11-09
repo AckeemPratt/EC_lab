@@ -1,17 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductDetails.aspx.cs" Inherits="AdvanceTech.Views.ProductDetails" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server" >
     <asp:FormView ID="productDetail" runat="server"
         ItemType="AdvanceTech.Models.Product" SelectMethod="GetProduct"
         RenderOuterTable="false">
         <ItemTemplate>
             <div>
-                <h1><%#:Item.ProductName %></h1>
+                <h1 class="animated bounce"><%#:Item.ProductName %></h1>
             </div>
             <br />
             <table>
                 <tr>
-                    <td>
+                    <td class="animated fadeInLeft">
                         <img src="/products/<%#:Item.ImagePath %>" style="border: solid; height: 300px" alt="<%#:Item.ProductName %>" />
                     </td>
                     <td>&nbsp;</td>

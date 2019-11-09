@@ -36,4 +36,20 @@
         </strong>
     </div>
     <br />
+    <table>
+        <tr>
+            <td>
+                <asp:Button ID="UpdateBtn" CssClass="btn btn-default" style="padding-right:20px" runat="server" Text="Update"
+                    OnClick="UpdateBtn_Click" />
+            </td>
+            <td>
+                <asp:ImageButton ID="CheckoutImageBtn" runat="server"
+                    ImageUrl="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"
+                    Width="145" AlternateText="Check out with PayPal"
+                    OnClick="CheckoutBtn_Click"
+                    BackColor="Transparent" BorderWidth="0" />
+            </td>
+        </tr>
+    </table>
+
 </asp:Content>
