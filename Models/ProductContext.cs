@@ -8,7 +8,7 @@ namespace AdvanceTech.Models
 {
     public class ProductContext : DbContext
     {
-        public ProductContext() : base("AdvanceTech")
+        public ProductContext() : base("DefaultConnection")
         {
         }
         public DbSet<Category> Categories { get; set; }

@@ -192,10 +192,6 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddToCart.aspx" />
     <Content Include="Admin\AdminPage.aspx" />
-    <Content Include="App_Data\AdvanceTech.mdf" />
-    <Content Include="App_Data\AdvanceTech_log.ldf">
-      <DependentUpon>AdvanceTech.mdf</DependentUpon>
-    </Content>
     <Content Include="carocel\360900500.jpg" />
     <Content Include="carocel\Blade-Pro.jpg" />
     <Content Include="carocel\img_592_e75607e4dcd3e5757e8b0a8fec3747e0_1.jpg" />
@@ -469,21 +465,13 @@
     <Compile Include="Logic\PayPalFunctions.cs" />
     <Compile Include="Logic\RoleActions.cs" />
     <Compile Include="Logic\ShoppingCartActions.cs" />
-    <Compile Include="Migrations\201910312310070_intitial.cs" />
-    <Compile Include="Migrations\201910312310070_intitial.Designer.cs">
-      <DependentUpon>201910312310070_intitial.cs</DependentUpon>
+    <Compile Include="Migrations\201911111026412_Initial.cs" />
+    <Compile Include="Migrations\201911111026412_Initial.Designer.cs">
+      <DependentUpon>201911111026412_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910312312299_Product.cs" />
-    <Compile Include="Migrations\201910312312299_Product.Designer.cs">
-      <DependentUpon>201910312312299_Product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911010002514_Product1.cs" />
-    <Compile Include="Migrations\201911010002514_Product1.Designer.cs">
-      <DependentUpon>201911010002514_Product1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911070356554_Product2.cs" />
-    <Compile Include="Migrations\201911070356554_Product2.Designer.cs">
-      <DependentUpon>201911070356554_Product2.cs</DependentUpon>
+    <Compile Include="Migrations\201911111029474_Products.cs" />
+    <Compile Include="Migrations\201911111029474_Products.Designer.cs">
+      <DependentUpon>201911111029474_Products.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -547,6 +535,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
@@ -561,17 +550,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910312310070_intitial.resx">
-      <DependentUpon>201910312310070_intitial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911111026412_Initial.resx">
+      <DependentUpon>201911111026412_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910312312299_Product.resx">
-      <DependentUpon>201910312312299_Product.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911010002514_Product1.resx">
-      <DependentUpon>201911010002514_Product1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911070356554_Product2.resx">
-      <DependentUpon>201911070356554_Product2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911111029474_Products.resx">
+      <DependentUpon>201911111029474_Products.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

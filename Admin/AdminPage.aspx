@@ -8,7 +8,7 @@
             <td><asp:Label ID="LabelAddCategory" runat="server">Category:</asp:Label></td> 
             <td> 
                 <asp:DropDownList ID="DropDownAddCategory" runat="server"  
-                    ItemType="AdvaneTech.Models.Category"  
+                    ItemType="AdvanceTech.Models.Category"  
                     SelectMethod="GetCategories" DataTextField="CategoryName"  
                     DataValueField="CategoryID" > 
                 </asp:DropDownList> 
@@ -17,11 +17,7 @@
         <tr> 
             <td>
                 
-                
-                
-                
-                
-                
+               
                 <asp:Label ID="LabelAddName" runat="server">Name:</asp:Label></td> 
             <td> 
                 <asp:TextBox ID="AddProductName" runat="server"></asp:TextBox> 

@@ -41,9 +41,13 @@ namespace AdvanceTech.Logic
             var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             var appUser = new ApplicationUser()
             {
+                dob = DateTime.Now,
+                Email = "Admin@gmail.com",
                 UserName = "Admin@gmail.com",
+                EmailConfirmed = true
             };
-           IdUserResult = userMgr.Create(appUser, "Pa$$word");
+
+           IdUserResult = userMgr.Create(appUser, "Pa$$word1");
             // If the new "Admin" user was successfully created,
             // add the "Admin" user to the "Administrator" role.
             if (IdUserResult.Succeeded)

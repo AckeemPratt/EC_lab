@@ -22,9 +22,8 @@ namespace AdvanceTech
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-
             // Initialize the product database.
-            Database.SetInitializer(new ProductDatabaseInitializer());
+           // Database.SetInitializer(new ProductDatabaseInitializer());
 
             // Create the administrator role and user.
             RoleActions roleActions = new RoleActions();
