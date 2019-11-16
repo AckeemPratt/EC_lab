@@ -11,13 +11,14 @@ using AdvanceTech;
 using AdvanceTech.Models;
 using System.Collections.Generic; 
 using System.Linq;
+using PayPal.Api;
 public class NVPAPICaller
 {
     //Flag that determines the PayPal environment (live or sandbox)
     private const bool bSandbox = true;
     private const string CVV2 = "CVV2";
     // Live strings.
-    private string pEndPointURL = "https://api-3t.paypal.com/nvp";
+    private string pEndPointURL = "https://api-3t.sandbox.paypal.com/nvp";
     private string host = "www.paypal.com";
     // Sandbox strings.
     private string pEndPointURL_SB = "https://api-3t.sandbox.paypal.com/nvp";

@@ -33,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,12 +43,31 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BraintreeHttp-Dotnet, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\BraintreeHttp-Dotnet.0.3.0\lib\netstandard2.0\BraintreeHttp-Dotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="Hammock, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
+      <HintPath>packages\Hammock.1.3.1\lib\4.0\Hammock.dll</HintPath>
+    </Reference>
+    <Reference Include="Hammock.ClientProfile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
+      <HintPath>packages\Hammock.1.3.1\lib\4.0\Hammock.ClientProfile.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPalCheckoutSdk, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\PayPalCheckoutSdk.1.0.2\lib\netstandard2.0\PayPalCheckoutSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPalCoreSDK, Version=1.7.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>packages\PayPalCoreSDK.1.7.1\lib\net451\PayPalCoreSDK.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -192,6 +212,10 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddToCart.aspx" />
     <Content Include="Admin\AdminPage.aspx" />
+    <Content Include="App_Data\DefaultConnection.mdf" />
+    <Content Include="App_Data\DefaultConnection_log.ldf">
+      <DependentUpon>DefaultConnection.mdf</DependentUpon>
+    </Content>
     <Content Include="carocel\360900500.jpg" />
     <Content Include="carocel\Blade-Pro.jpg" />
     <Content Include="carocel\img_592_e75607e4dcd3e5757e8b0a8fec3747e0_1.jpg" />
@@ -206,6 +230,7 @@
     <Content Include="Checkout\CheckoutError.aspx" />
     <Content Include="Checkout\CheckoutReview.aspx" />
     <Content Include="Checkout\CheckoutStart.aspx" />
+    <Content Include="Checkout\shippingDetails.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -444,6 +469,13 @@
     <Compile Include="Checkout\CheckoutStart.aspx.designer.cs">
       <DependentUpon>CheckoutStart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Checkout\shippingDetails.aspx.cs">
+      <DependentUpon>shippingDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout\shippingDetails.aspx.designer.cs">
+      <DependentUpon>shippingDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -535,7 +567,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
@@ -555,6 +586,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911111029474_Products.resx">
       <DependentUpon>201911111029474_Products.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

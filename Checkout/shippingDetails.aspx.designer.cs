@@ -7,65 +7,92 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdvanceTech
+namespace AdvanceTech.Checkout
 {
 
 
-    public partial class ShoppingCart
+    public partial class shippingDetails
     {
 
         /// <summary>
-        /// ShoppingCartTitle control.
+        /// FirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ShoppingCartTitle;
+        protected global::System.Web.UI.WebControls.TextBox FirstName;
 
         /// <summary>
-        /// CartList control.
+        /// LastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CartList;
+        protected global::System.Web.UI.WebControls.TextBox LastName;
 
         /// <summary>
-        /// LabelTotalText control.
+        /// Address control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelTotalText;
+        protected global::System.Web.UI.WebControls.TextBox Address;
 
         /// <summary>
-        /// lblTotal control.
+        /// Phone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotal;
+        protected global::System.Web.UI.WebControls.TextBox Phone;
 
         /// <summary>
-        /// UpdateBtn control.
+        /// PostalCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateBtn;
+        protected global::System.Web.UI.WebControls.TextBox PostalCode;
 
         /// <summary>
-        /// CheckOutBtn control.
+        /// City control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CheckOutBtn;
+        protected global::System.Web.UI.WebControls.TextBox City;
+
+        /// <summary>
+        /// State control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox State;
+
+        /// <summary>
+        /// Country control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Country;
+
+        /// <summary>
+        /// Email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Email;
     }
 }

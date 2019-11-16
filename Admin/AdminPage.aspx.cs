@@ -1,118 +1,133 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AdvanceTech.Logic;
+using System;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using AdvanceTech.Models;
-using AdvanceTech.Logic;
+using System.Data.Entity;
 
 namespace AdvanceTech.Admin
 {
     public partial class AdminPage : System.Web.UI.Page
     {
-        
-            protected void Page_Load(object sender, EventArgs e)
-            {
-                string productAction = Request.QueryString["ProductAction"];
-                if (productAction == "add")
-                {
-                    LabelAddStatus.Text = "Product added!";
-                }
 
-                if (productAction == "remove")
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            string productAction = Request.QueryString["ProductAction"];
+            if (productAction == "add")
+            {
+                LabelAddStatus.Text = "Product added!";
+            }
+
+            if (productAction == "remove")
+            {
+                LabelRemoveStatus.Text = "Product removed!";
+            }
+
+           
+
+        }
+
+        protected void AddProductButton_Click(object sender, EventArgs e)
+        {
+            Boolean fileOK = false;
+            String path = Server.MapPath("~/products/");
+            if (ProductImage.HasFile)
+            {
+                String fileExtension = System.IO.Path.GetExtension(ProductImage.FileName).ToLower();
+                String[] allowedExtensions = { ".gif", ".png", ".jpeg", ".jpg" };
+                for (int i = 0; i < allowedExtensions.Length; i++)
                 {
-                    LabelRemoveStatus.Text = "Product removed!";
+                    if (fileExtension == allowedExtensions[i])
+                    {
+                        fileOK = true;
+                    }
                 }
             }
 
-            protected void AddProductButton_Click(object sender, EventArgs e)
+            if (fileOK)
             {
-                Boolean fileOK = false;
-                String path = Server.MapPath("~/Catalog/Images/");
-                if (ProductImage.HasFile)
+                try
                 {
-                    String fileExtension = System.IO.Path.GetExtension(ProductImage.FileName).ToLower();
-                    String[] allowedExtensions = { ".gif", ".png", ".jpeg", ".jpg" };
-                    for (int i = 0; i < allowedExtensions.Length; i++)
-                    {
-                        if (fileExtension == allowedExtensions[i])
-                        {
-                            fileOK = true;
-                        }
-                    }
+                    // Save to Images folder. 
+                    ProductImage.PostedFile.SaveAs(path + ProductImage.FileName);
+                    // Save to Images/Thumbs folder. 
+                    ProductImage.PostedFile.SaveAs(path + ProductImage.FileName);
+                }
+                catch (Exception ex)
+                {
+                    LabelAddStatus.Text = ex.Message;
                 }
 
-                if (fileOK)
+                // Add product data to DB. 
+                AddProducts products = new AddProducts();
+                bool addSuccess = products.AddProduct(AddProductName.Text, AddProductDescription.Text,
+                    AddProductPrice.Text, DropDownAddCategory.SelectedValue, ProductImage.FileName);
+                if (addSuccess)
                 {
-                    try
-                    {
-                        // Save to Images folder. 
-                        ProductImage.PostedFile.SaveAs(path + ProductImage.FileName);
-                        // Save to Images/Thumbs folder. 
-                        ProductImage.PostedFile.SaveAs(path + "Thumbs/" + ProductImage.FileName);
-                    }
-                    catch (Exception ex)
-                    {
-                        LabelAddStatus.Text = ex.Message;
-                    }
-
-                    // Add product data to DB. 
-                    AddProducts products = new AddProducts();
-                    bool addSuccess = products.AddProduct(AddProductName.Text, AddProductDescription.Text,
-                        AddProductPrice.Text, DropDownAddCategory.SelectedValue, ProductImage.FileName);
-                    if (addSuccess)
-                    {
-                        // Reload the page. 
-                        string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
-                        Response.Redirect(pageUrl + "?ProductAction=add");
-                    }
-                    else
-                    {
-                        LabelAddStatus.Text = "Unable to add new product to database.";
-                    }
+                    // Reload the page. 
+                    string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+                    Response.Redirect(pageUrl + "?ProductAction=add");
                 }
                 else
                 {
-                    LabelAddStatus.Text = "Unable to accept file type.";
+                    LabelAddStatus.Text = "Unable to add new product to database.";
                 }
             }
-
-            public IQueryable GetCategories()
+            else
             {
-                var _db = new AdvanceTech.Models.ProductContext();
-                IQueryable query = _db.Categories;
-                return query;
+                LabelAddStatus.Text = "Unable to accept file type.";
             }
+        }
 
-            public IQueryable GetProducts()
-            {
-                var _db = new AdvanceTech.Models.ProductContext();
-                IQueryable query = _db.Products;
-                return query;
-            }
+        public IQueryable GetCategories()
+        {
+            var _db = new AdvanceTech.Models.ProductContext();
+            IQueryable query = _db.Categories;
+            return query;
+        }
 
-            protected void RemoveProductButton_Click(object sender, EventArgs e)
+        public IQueryable GetProducts()
+        {
+            var _db = new AdvanceTech.Models.ProductContext();
+            IQueryable query = _db.Products;
+            return query;
+        }
+
+        protected void RemoveProductButton_Click(object sender, EventArgs e)
+        {
+            using (var _db = new AdvanceTech.Models.ProductContext())
             {
-                using (var _db = new AdvanceTech.Models.ProductContext())
+                int productId = Convert.ToInt16(DropDownRemoveProduct.SelectedValue);
+                var myItem = (from c in _db.Products where c.ProductID == productId select c).FirstOrDefault();
+                if (myItem != null)
                 {
-                    int productId = Convert.ToInt16(DropDownRemoveProduct.SelectedValue);
-                    var myItem = (from c in _db.Products where c.ProductID == productId select c).FirstOrDefault();
-                    if (myItem != null)
-                    {
-                        _db.Products.Remove(myItem);
-                        _db.SaveChanges();
+                    _db.Products.Remove(myItem);
+                    _db.SaveChanges();
 
-                        // Reload the page. 
-                        string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
-                        Response.Redirect(pageUrl + "?ProductAction=remove");
-                    }
-                    else
-                    {
-                        LabelRemoveStatus.Text = "Unable to locate product.";
-                    }
+                    // Reload the page. 
+                    string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+                    Response.Redirect(pageUrl + "?ProductAction=remove");
+                }
+                else
+                {
+                    LabelRemoveStatus.Text = "Unable to locate product.";
                 }
             }
-        
+        }
+
+        protected void UpdateProductButton_Click(object sender, EventArgs e)
+        {
+            using (var db = new Models.ProductContext())
+                
+            {
+                int productId = Convert.ToInt16(DropDownEditProduct.SelectedValue);
+                var product = (from c in db.Products where c.ProductID == productId select c);
+
+              /*  if (product = )
+                { 
+                    product.
+                }*/
+            }
+        }
+
+
     }
 }

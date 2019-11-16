@@ -2,6 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    
+    
     <section>
         <div class="mt-5 table-responsive">
             <hgroup>
@@ -63,7 +65,7 @@
                     <table style="width: 100%;">
                         <tbody>
                             <tr>
-                                <td>
+                                <td class="media">
                                     <table id="groupPlaceholderContainer"
                                         runat="server" style="width: 100%">
                                         <tr id="groupPlaceholder"></tr>

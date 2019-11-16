@@ -31,7 +31,7 @@ namespace AdvanceTech
                     lblTotal.Text = "";
                     ShoppingCartTitle.InnerText = "Shopping Cart is Empty";
                     UpdateBtn.Visible = false;
-                    CheckoutImageBtn.Visible = false;
+                    CheckOutBtn.Visible = false;
                 }
             }
         }
@@ -89,13 +89,14 @@ namespace AdvanceTech
             UpdateCartItems();
         }
 
-        protected void CheckoutBtn_Click(object sender, ImageClickEventArgs e)
+        public void CheckoutBtn_Click(object sender, EventArgs e)
         {
             using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
             {
                 Session["payment_amt"] = usersShoppingCart.GetTotal();
+                Session["Cart"] = usersShoppingCart.GetCartItems();
             }
-            Response.Redirect("Checkout/CheckoutStart.aspx");
+            Response.Redirect("Checkout/shippingDetails.aspx");
         }
 
     }

@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> AdvanceTech Application</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -16,22 +16,28 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> 
 
     <style>
+        @media (max-width:500px) {
+            .media {
+                display: block;
+            }
+        }
         .help {
-	 text-transfrom: uppercase;
-	 color: white;
-	 font-size:2em;
-	 text-align: center;
-	 animation: neonGlow 0.5s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
-}
- @keyframes neonGlow {
-	 0% {
-		 text-shadow: 0 0 3px rgba(255, 255, 255, .8), 0 0 4px rgba(255, 255, 255, .8), 0 0 8px rgba(255, 255, 255, .8), 0 0 16px rgba(66, 220, 219, .8), 0 0 32px rgba(66, 220, 219, .8), 0 0 64px rgba(66, 220, 219, .5), 0 0 128px rgba(66, 220, 219, .5), 0 0 236px rgba(66, 220, 219, .5), 0 0 236px rgba(66, 220, 219, .5);
-	}
-	 100% {
-		 text-shadow: 0 0 2px rgba(255, 255, 255, .8), 0 0 2px rgba(255, 255, 255, .8), 0 0 4px rgba(255, 255, 255, .8), 0 0 8px rgba(66, 220, 219, .8), 0 0 16px rgba(66, 220, 219, .8), 0 0 32px rgba(66, 220, 219, .8), 0 0 64px rgba(66, 220, 219, .5), 0 0 128px rgba(66, 220, 219, .5);
-	}
-}
- 
+            text-transfrom: uppercase;
+            color: white;
+            font-size: 2em;
+            text-align: center;
+            animation: neonGlow 0.5s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        }
+
+        @keyframes neonGlow {
+            0% {
+                text-shadow: 0 0 3px rgba(255, 255, 255, .8), 0 0 4px rgba(255, 255, 255, .8), 0 0 8px rgba(255, 255, 255, .8), 0 0 16px rgba(66, 220, 219, .8), 0 0 32px rgba(66, 220, 219, .8), 0 0 64px rgba(66, 220, 219, .5), 0 0 128px rgba(66, 220, 219, .5), 0 0 236px rgba(66, 220, 219, .5), 0 0 236px rgba(66, 220, 219, .5);
+            }
+
+            100% {
+                text-shadow: 0 0 2px rgba(255, 255, 255, .8), 0 0 2px rgba(255, 255, 255, .8), 0 0 4px rgba(255, 255, 255, .8), 0 0 8px rgba(66, 220, 219, .8), 0 0 16px rgba(66, 220, 219, .8), 0 0 32px rgba(66, 220, 219, .8), 0 0 64px rgba(66, 220, 219, .5), 0 0 128px rgba(66, 220, 219, .5);
+            }
+        }
     </style>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 </head>
@@ -57,12 +63,12 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top" style="top: 0px;">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="top: 0px; left:0px">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
-                        <spand class="icon-bar"></spand>
+                        <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand help" runat="server" href="~/" style="color:white">AdvanceTech</a>
@@ -70,12 +76,15 @@
                 <div class="navbar-collapse collapse">
                     
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" id="adminLink" visible="false" class="fa-user-shield" href="~/Admin/AdminPage">Admin</a></li>
+                        <li><a runat="server" id="adminLink" visible="true"  href="~/Admin/AdminPage">Admin</a></li>
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="Views/ProductList.aspx">Products</a></li>
                         <li><a runat="server" href="~/About">About Us</a></li>
                         <li><a runat="server" href="~/Contact">Contact Us</a></li>
-                        <li class="animated heartBeat infinite"> <a runat="server" href="~/ShoppingCart" ID="cartCount"> &nbsp;</a> </li>
+                         <li><a runat="server" href="~/Checkout/CheckoutReview?Email=<%Email %>">Order History</a></li>
+                                      <%--  href="ProductDetails.aspx?productID=<%#:Item.ProductID%>">--%>
+
+                        <li class="animated bounce infinite"> <a runat="server" href="~/ShoppingCart" ID="cartCount"> &nbsp;</a> </li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
@@ -86,7 +95,7 @@
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Welcome, <%:HttpContext.Current.GetOwinContext()
+                                <li><a runat="server" class="badge" href="~/Account/Manage" title="Manage your account">Welcome, <%:HttpContext.Current.GetOwinContext()
            .GetUserManager<AdvanceTech.ApplicationUserManager>()
             .FindById(Context.User.Identity.GetUserId()).displayName  %> !</a></li>
                                 <li>

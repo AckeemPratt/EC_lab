@@ -12,7 +12,7 @@ namespace AdvanceTech
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+          
         }
 
         public IQueryable<Product> GetCategories()
