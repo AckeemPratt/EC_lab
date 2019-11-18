@@ -123,7 +123,7 @@ namespace AdvanceTech.Admin
 
               /*  if (product = )
                 { 
-                    product.
+                    product.m
                 }*/
             }
         }
